@@ -4,7 +4,9 @@
   "description": "hackathonbtg32 backend",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/app.ts"
+    "dev": "ts-node-dev src/app.ts",
+    "migrate": "npx prisma migrate dev",
+    "seed": "ts-node prisma/seed.ts"
   },
   "author": "squad32",
   "license": "ISC",

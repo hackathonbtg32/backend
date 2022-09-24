@@ -12,21 +12,22 @@ model User {
   name      String?
   email     String   @unique
   password  String
-  status    String
+  status    Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   client    Client?
 }
 
 model Client {
-  id      Int      @id @default(autoincrement())
-  cpf     String
-  cnpj    String
-  user    User     @relation(fields: [userId], references: [id])
-  userId  Int      @unique
-  Broker  Broker[]
-  debits  Debits[]
-  Account Account?
+  id        Int      @id @default(autoincrement())
+  cnpjcpf   String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Broker    Broker[]
+  debits    Debits[]
+  Account   Account?
 }
 
 model Broker {
