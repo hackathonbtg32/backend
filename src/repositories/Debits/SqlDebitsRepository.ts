@@ -11,4 +11,14 @@ export class SqlDebitsRepository implements DebitsRepository {
     })
     return debits
   }
+  async delete(debitId: number): Promise<void> {
+    await prisma.debits.update({
+      data: {
+        status: 0
+      },
+      where: {
+        id: debitId
+      }
+    })
+  }
 }

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `Debits` ADD COLUMN `status` INTEGER NOT NULL DEFAULT 1;
