@@ -7,5 +7,4 @@ debitsRouter.get('/debits/:clientId', (request, response) => {
   return listAllDebitsController.handle(request, response)
 })
 
-
 export { debitsRouter };
