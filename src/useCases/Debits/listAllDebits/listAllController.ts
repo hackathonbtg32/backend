@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { responseError, responseSuccess } from "../../../utils/Response";
 import { ListAllDebitsUseCase } from "./listAllUseCase";
 
 export class ListAllDebitsController {
@@ -12,12 +13,9 @@ export class ListAllDebitsController {
       const debits = await this.listAllDebitsUseCase.execute({
         clientId
       })
-      return response.status(201).send(debits)
-
+      return responseSuccess(response, debits)
     } catch (err: any) {
-      return response.status(400).json({
-        message: err.message || 'Unexpected error.'
-      })
+      return responseError(response, err.message, 400)
     }
   }
 }
