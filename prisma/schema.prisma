@@ -36,6 +36,7 @@ model Broker {
   cardLabel            String
   cnpj                 String
   availableBrokerValue Float
+  status               Int      @default(1)
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
   Client               Client?  @relation(fields: [clientId], references: [id])
@@ -52,12 +53,12 @@ model Account {
 }
 
 model Debits {
-  id                Int      @id @default(autoincrement())
-  name              String
-  paymentData       Json
-  paymentValue      Float
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  Client            Client?  @relation(fields: [clientId], references: [id])
-  clientId          Int?
+  id           Int      @id @default(autoincrement())
+  name         String
+  paymentData  Json
+  paymentValue Float
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  Client       Client?  @relation(fields: [clientId], references: [id])
+  clientId     Int?
 }

@@ -11,4 +11,14 @@ export class SqlBrokerRepository implements BrokerRepository {
     })
     return broker
   }
+  async delete(brokerId: number): Promise<void> {
+    await prisma.broker.update({
+      data: {
+        status: 0
+      },
+      where: {
+        id: brokerId
+      }
+    })
+  }
 }
