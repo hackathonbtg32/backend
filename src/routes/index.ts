@@ -10,9 +10,9 @@ const routes = (app: Express) => {
     return responseSuccess(res, { titulo: "Curso de node" })
   })
 
-  app.use('/', debitsRouter)
-  app.use('/', brokerRouter)
-  app.use('/', accountRouter)
+  app.use(debitsRouter)
+  app.use(brokerRouter)
+  app.use(accountRouter)
 
 }
 
