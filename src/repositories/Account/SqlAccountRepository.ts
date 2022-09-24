@@ -7,6 +7,9 @@ export class SqlAccountRepository implements AccountRepository {
     const account = await prisma.account.findFirstOrThrow({
       where: {
         clientId: clientId
+      },
+      orderBy: {
+        createdAt: 'desc'
       }
     })
     return account
