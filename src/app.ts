@@ -1,9 +1,13 @@
 import cors from 'cors';
 import express from 'express';
-import dotenv from 'dotenv';
+require('dotenv/config')
 
 const app = express()
-const port = 8080
+app.use(express.json())
+app.use(cors({
+  origin: '*'
+}))
+const port = process.env.SERVER_PORT
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
