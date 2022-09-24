@@ -1,5 +1,6 @@
 import { Express, Request, Response } from "express"
 import { responseSuccess } from "../utils/Response"
+import { accountRouter } from "./account"
 
 import { brokerRouter } from "./brokers"
 import { debitsRouter } from "./debits"
@@ -11,6 +12,8 @@ const routes = (app: Express) => {
 
   app.use('/', debitsRouter)
   app.use('/', brokerRouter)
+  app.use('/', accountRouter)
+
 }
 
 export default routes
