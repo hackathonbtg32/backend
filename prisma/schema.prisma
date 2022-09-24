@@ -31,34 +31,33 @@ model Client {
 }
 
 model Broker {
-  id             Int      @id @default(autoincrement())
-  namedBroker    String
-  cardLabel      String
-  cnpj           String
-  availableValue String
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  Client         Client?  @relation(fields: [clientId], references: [id])
-  clientId       Int?
+  id                   Int      @id @default(autoincrement())
+  namedBroker          String
+  cardLabel            String
+  cnpj                 String
+  availableBrokerValue Float
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  Client               Client?  @relation(fields: [clientId], references: [id])
+  clientId             Int?
 }
 
 model Account {
   id         Int      @id @default(autoincrement())
   client     Client?  @relation(fields: [clientId], references: [id])
   clientId   Int?     @unique
-  totalValue String
+  totalValue Float
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
 
 model Debits {
-  id          Int      @id @default(autoincrement())
-  name        String
-  value       String
-  paymentDate DateTime
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  status      Int
-  Client      Client?  @relation(fields: [clientId], references: [id])
-  clientId    Int?
+  id                Int      @id @default(autoincrement())
+  name              String
+  paymentData       Json
+  paymentValue      Float
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  Client            Client?  @relation(fields: [clientId], references: [id])
+  clientId          Int?
 }

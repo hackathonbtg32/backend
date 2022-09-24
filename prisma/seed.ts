@@ -14,7 +14,7 @@ const User = {
 
 const Account = {
   id: 1,
-  totalValue: '200.0',
+  totalValue: 200.00,
   clientId: 1,
 
   createdAt: new Date('2022-09-24 14:35:00'),
@@ -32,7 +32,7 @@ const Client = {
 
 const Broker = {
   id: 1,
-  availableValue: '200',
+  availableBrokerValue: 200.00,
   cardLabel: 'Minha xp',
   cnpj: '45552164000160',
   namedBroker: 'Xp',
@@ -44,9 +44,16 @@ const Broker = {
 const Debits = {
   id: 1,
   name: 'Escola de natação',
-  paymentDate: new Date('2022-10-10 00:00:00'),
-  status: 1,
-  value: '150.00',
+  paymentData: JSON.stringify({
+    type: 'Boleto',
+    paymentCode: '34191.79001 01043.510047 91020.150008 2 91180026000',
+    paymentTo: 'Banco Roxinho',
+    paymentDate: '',
+    paymentValidateDate: '',
+    paymentPayedValue: 0.0,
+    paymentStatus: 0,
+  }),
+  paymentValue: 150.00,
   clientId: 1,
   createdAt: new Date('2022-09-24 14:35:00'),
   updatedAt: new Date('2022-09-24 14:35:00')

@@ -31,7 +31,7 @@ CREATE TABLE `Broker` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
     `cnpj` VARCHAR(191) NOT NULL,
-    `availableValue` VARCHAR(191) NOT NULL,
+    `availableBrokerValue` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
     `clientId` INTEGER NULL,
