@@ -6,7 +6,7 @@ export class SqlDebitsRepository implements DebitsRepository {
   async findAll(clientId: number): Promise<Debits[]> {
     const debits = await prisma.debits.findMany({
       where: {
-        clientId
+        clientId: clientId
       }
     })
     return debits
