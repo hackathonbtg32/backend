@@ -1,7 +1,7 @@
 import { Express, Request, Response } from "express"
 import { responseSuccess } from "../utils/Response"
 
-import brokers from "./brokers"
+import { brokerRouter } from "./brokers"
 import { debitsRouter } from "./debits"
 
 const routes = (app: Express) => {
@@ -9,8 +9,8 @@ const routes = (app: Express) => {
     return responseSuccess(res, { titulo: "Curso de node" })
   })
 
-  app.use(brokers)
   app.use('/', debitsRouter)
+  app.use('/', brokerRouter)
 }
 
 export default routes

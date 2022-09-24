@@ -1,8 +1,11 @@
-import express from 'express'
-// import debitsController from '../controllers/brokersController.ts'
+import { Router } from "express";
+import { listAllBrokerController } from "../useCases/Broker/listAllBroker";
 
-const router = express.Router()
+const brokerRouter = Router()
 
-// router.get('/brokers/:clientId', brokersController.listById)
+brokerRouter.get('/brokers/:clientId', (request, response) => {
+  return listAllBrokerController.handle(request, response)
+})
 
-export default router
+
+export { brokerRouter };
