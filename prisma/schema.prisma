@@ -19,24 +19,35 @@ model User {
 }
 
 model Client {
-  id     Int      @id @default(autoincrement())
-  cpf    String
-  cnpj   String
-  user   User     @relation(fields: [userId], references: [id])
-  userId Int      @unique
-  Broker Broker[]
-  debits Debits[]
+  id      Int      @id @default(autoincrement())
+  cpf     String
+  cnpj    String
+  user    User     @relation(fields: [userId], references: [id])
+  userId  Int      @unique
+  Broker  Broker[]
+  debits  Debits[]
+  Account Account?
 }
 
 model Broker {
   id             Int      @id @default(autoincrement())
-  name           String
+  namedBroker    String
+  cardLabel      String
   cnpj           String
   availableValue String
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   Client         Client?  @relation(fields: [clientId], references: [id])
   clientId       Int?
+}
+
+model Account {
+  id         Int      @id @default(autoincrement())
+  client     Client?  @relation(fields: [clientId], references: [id])
+  clientId   Int?     @unique
+  totalValue String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Debits {
