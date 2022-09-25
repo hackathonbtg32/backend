@@ -11,17 +11,28 @@ export class CreateDebitsController {
     const { clientId } = request.params
     const {
       name,
-      status,
-      paymentData,
-      paymentValue } = request.body
+      paymentCode,
+      paymentDueDate,
+      paymentTo,
+      paymentValue
+    } = request.body
+
+    const paymentData = {
+      type: 'Boleto',
+      paymentCode,
+      paymentTo,
+      paymentDate: '',
+      paymentPayedValue: 0,
+      paymentDueDate,
+      paymentStatus: 0
+    }
 
     try {
       await this.createDebitsUseCase.execute({
         clientId,
         name,
-        status,
-        paymentData,
         paymentValue,
+        paymentData: JSON.stringify(paymentData),
       })
       return responseSuccess(response, {})
     } catch (err: any) {

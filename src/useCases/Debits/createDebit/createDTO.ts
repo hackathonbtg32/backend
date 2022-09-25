@@ -1,7 +1,6 @@
 export interface createDebitsDTO {
   clientId: string
   name: string
-  paymentData: JSON
+  paymentData: string
   paymentValue: number
-  status: number
 }

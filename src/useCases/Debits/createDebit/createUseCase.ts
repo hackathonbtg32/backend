@@ -8,13 +8,12 @@ export class CreateDebitsUseCase {
 
   async execute(data: createDebitsDTO) {
     const clientId = Number(data.clientId)
-
     const debit = {
       name: data.name,
-      status: data.status,
-      paymentData: data.paymentData,
-      paymentValue: data.paymentValue
+      paymentValue: data.paymentValue,
+      paymentData: data.paymentData
     }
+
     await this.debitsRepository.createDebit(clientId, debit)
   }
 }
