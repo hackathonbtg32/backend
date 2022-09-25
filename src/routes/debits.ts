@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createDebitsController } from "../useCases/Debits/createDebit";
 import { deleteDebitController } from "../useCases/Debits/deleteDebit";
 import { listAllDebitsController } from "../useCases/Debits/listAllDebits";
+import { listPayedDebitsController } from "../useCases/Debits/listPayedDebits";
 import { nextDebitsController } from "../useCases/Debits/nextDebit";
 import { updateDebitsController } from "../useCases/Debits/updateDebits";
 
@@ -9,6 +10,10 @@ const debitsRouter = Router()
 
 debitsRouter.get('/debits/:clientId', (request, response) => {
   return listAllDebitsController.handle(request, response)
+})
+
+debitsRouter.get('/debits/history/:clientId', (request, response) => {
+  return listPayedDebitsController.handle(request, response)
 })
 
 debitsRouter.get('/debits/nextdebittopay/:clientId', (request, response) => {
