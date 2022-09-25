@@ -7,5 +7,4 @@ accountRouter.get('/account/last/:clientId', (request, response) => {
   return listLastAccountController.handle(request, response)
 })
 
-
 export { accountRouter };
