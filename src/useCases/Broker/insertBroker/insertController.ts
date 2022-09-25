@@ -11,6 +11,8 @@ export class InsertBrokerController {
     const { clientId } = request.params
     const {dataBrokers} = request.body
 
+    console.log(`Controller: ${dataBrokers}`)
+
     try {
       await this.insertBrokerUseCase.execute({
         clientId,

@@ -5,5 +5,5 @@ export interface BrokerRepository {
   delete(brokerId: number): Promise<void>
   findAccValue(clientId: number): Promise<Broker[]>
   updateValue(brokerId: number, availableBrokerValue: number): Promise<void>
-  insert(clientId: number, data: object): Promise<Broker[]>
+  insert(clientId: number, data: object): Promise<void>
 }

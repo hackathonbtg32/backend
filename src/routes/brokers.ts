@@ -19,7 +19,7 @@ brokerRouter.put('/broker/:brokerId', (request, response) => {
   return deleteBrokerController.handle(request, response)
 })
 
-brokerRouter.patch('/debits/insert/:debitId', (request, response) => {
+brokerRouter.post('/broker/insert/:clientId', (request, response) => {
   return insertBrokerController.handle(request, response)
 })
 
