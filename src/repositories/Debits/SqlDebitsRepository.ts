@@ -7,11 +7,21 @@ export class SqlDebitsRepository implements DebitsRepository {
     const debits = await prisma.debits.findMany({
       where: {
         clientId: clientId,
+      }
+    })
+    return debits
+  }
+
+  async findPayed(clientId: number): Promise<Debits[]> {
+    const debits = await prisma.debits.findMany({
+      where: {
+        clientId: clientId,
         status: 1
       }
     })
     return debits
   }
+
   async delete(debitId: number): Promise<void> {
     await prisma.debits.update({
       data: {
