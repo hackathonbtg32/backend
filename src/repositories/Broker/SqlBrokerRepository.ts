@@ -6,7 +6,8 @@ export class SqlBrokerRepository implements BrokerRepository {
   async findAll(clientId: number): Promise<Broker[]> {
     const broker = await prisma.broker.findMany({
       where: {
-        clientId: clientId
+        clientId: clientId,
+        isRemoved: false,
       }
     })
     return broker
@@ -14,7 +15,7 @@ export class SqlBrokerRepository implements BrokerRepository {
   async delete(brokerId: number): Promise<void> {
     await prisma.broker.update({
       data: {
-        status: 0
+        isRemoved: true
       },
       where: {
         id: brokerId

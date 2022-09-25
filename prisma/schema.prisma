@@ -37,6 +37,7 @@ model Broker {
   cnpj                 String
   availableBrokerValue Float
   status               Int      @default(1)
+  isRemoved            Boolean  @default(false)
   createdAt            DateTime @default(now())
   updatedAt            DateTime @updatedAt
   Client               Client?  @relation(fields: [clientId], references: [id])
