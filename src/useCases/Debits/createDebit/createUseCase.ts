@@ -10,7 +10,6 @@ export class CreateDebitsUseCase {
     const clientId = Number(data.clientId)
     const debit = {
       name: data.name,
-      paymentValue: data.paymentValue,
       paymentData: data.paymentData
     }
 

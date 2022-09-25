@@ -20,8 +20,8 @@ export class CreateDebitsController {
     const paymentData = {
       type: 'Boleto',
       paymentCode,
-      paymentTo,
-      paymentDate: '',
+      paymentTo: 'BTG Pactual',
+      paymentDate: '2022-12-12T14:35:00.000Z',
       paymentPayedValue: 0,
       paymentDueDate,
       paymentStatus: 0
@@ -31,7 +31,6 @@ export class CreateDebitsController {
       await this.createDebitsUseCase.execute({
         clientId,
         name,
-        paymentValue,
         paymentData: JSON.stringify(paymentData),
       })
       return responseSuccess(response, {})
