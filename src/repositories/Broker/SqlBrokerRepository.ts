@@ -49,4 +49,12 @@ export class SqlBrokerRepository implements BrokerRepository {
       }
     })
   }
+
+  async insert(clientId: number, data: object): Promise<Broker[]> {
+    const brokers = await prisma.broker.upsert({
+      create: {
+        
+      }
+    })
+  }
 }

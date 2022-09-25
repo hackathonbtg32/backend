@@ -12,9 +12,6 @@ export class CreateDebitsController {
     const {
       name,
       paymentCode,
-      paymentDueDate,
-      paymentTo,
-      paymentValue
     } = request.body
 
     const paymentData = {
