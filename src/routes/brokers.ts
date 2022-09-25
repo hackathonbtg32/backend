@@ -10,7 +10,7 @@ brokerRouter.get('/brokers/:clientId', (request, response) => {
   return listAllBrokerController.handle(request, response)
 })
 
-brokerRouter.get('/brokers/avaliableValue/:clientId', (request, response) => {
+brokerRouter.get('/brokers/avaliablevalue/:clientId', (request, response) => {
   return listValueBrokerController.handle(request, response)
 })
 

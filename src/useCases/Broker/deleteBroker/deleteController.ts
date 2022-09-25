@@ -13,7 +13,6 @@ export class DeleteBrokerController {
     try {
       await this.deleteBrokerUseCase.execute({
         brokerId
-
       })
 
       return responseSuccess(response, {})
