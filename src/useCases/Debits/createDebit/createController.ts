@@ -21,9 +21,9 @@ export class CreateDebitsController {
       type: 'Boleto',
       paymentCode,
       paymentTo: 'BTG Pactual',
-      paymentDate: '2022-12-12T14:35:00.000Z',
+      paymentDate: '',
       paymentPayedValue: 0,
-      paymentDueDate,
+      paymentDueDate: '2022-12-12T14:35:00.000Z',
       paymentStatus: 0
     }
 
