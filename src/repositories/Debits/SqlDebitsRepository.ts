@@ -21,4 +21,17 @@ export class SqlDebitsRepository implements DebitsRepository {
       }
     })
   }
+
+  async nextDebitPay(clientId: number): Promise<Debits> {
+    const debit = await prisma.debits.findFirst({
+      where: {
+        clientId: clientId,
+        status: 0
+      },
+      orderBy: {
+        paymentValue: 'asc',
+      }
+    })
+    return debit as Debits
+  }
 }
