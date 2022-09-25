@@ -32,4 +32,15 @@ export class SqlBrokerRepository implements BrokerRepository {
     })
     return values
   }
+
+  async updateValue(brokerId: number, availableBrokerValue: number): Promise<void> {
+    await prisma.broker.update({
+      data: {
+        availableBrokerValue: availableBrokerValue,
+      },
+      where: {
+        id: brokerId
+      }
+    })
+  }
 }
