@@ -1,9 +1,12 @@
-import { Router } from "express";import { responseSuccess } from "../utils/Response";
+import { Router } from "express"; import { responseSuccess } from "../utils/Response";
+import { ListAllBrokerUseCase } from "../useCases/Broker/listAllBroker/listAllUseCase";
+import { SqlBrokerRepository } from "../repositories/Broker/SqlBrokerRepository";
+import { listAllBrokerDTO } from "../useCases/Broker/listAllBroker/listAllDTO";
 
 const openFinanceRouter = Router()
 
 openFinanceRouter.get('/openfinance/brokers/:clientId', (_, response) => {
-  const rawData = [
+  var rawData = [
     {
       customerId: "1850de5a-3cec-11ed-b878-0242ac120002",
       customerName: "Jhon Doe",
@@ -54,7 +57,21 @@ openFinanceRouter.get('/openfinance/brokers/:clientId', (_, response) => {
     }
   ]
 
-  return responseSuccess(response, rawData, 'Ok')
+  const sqlBrokersRepository = new SqlBrokerRepository()
+  const listAllBrokerUseCase = new ListAllBrokerUseCase(sqlBrokersRepository)
+
+  const data: listAllBrokerDTO = {
+    clientId: '1'
+  }
+
+  listAllBrokerUseCase.execute(data).then(res => {
+    for (let i in res) {
+      const index = rawData.findIndex(e => e.organizationCnpj === res[i].cnpj);
+      rawData = rawData.filter((_, i) => i !== index);
+    }
+
+    return responseSuccess(response, rawData, 'Ok')
+  })
 })
 
 export { openFinanceRouter };
