@@ -20,7 +20,6 @@ export class SqlDebitsRepository implements DebitsRepository {
         clientId: clientId,
         status: 1,
         isRemoved: false
-
       }
     })
     return debits
@@ -79,7 +78,8 @@ export class SqlDebitsRepository implements DebitsRepository {
         clientId: clientId,
         name: debit.name,
         paymentData: debit.paymentData,
-        paymentValue: randomPaymentValue
+        paymentValue: randomPaymentValue,
+        status: 0,
       }
     }
     )
