@@ -22,4 +22,14 @@ export class SqlBrokerRepository implements BrokerRepository {
       }
     })
   }
+
+  async findAccValue(clientId: number): Promise<Broker[]> {
+    const values = await prisma.broker.findMany({
+      where: {
+        clientId: clientId,
+        status: -1
+      }
+    })
+    return values
+  }
 }

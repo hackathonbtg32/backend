@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import { responseError, responseSuccess } from "../../../utils/Response";
-import { ListAllBrokerUseCase } from "./listAllUseCase";
+import { ListValueBrokerUseCase } from "./listValueUseCase";
 
-export class ListAllBrokerController {
+export class ListValueBrokerController {
   constructor(
-    private listAllBrokerUseCase: ListAllBrokerUseCase
+    private listValueBrokerUseCase: ListValueBrokerUseCase
   ) { }
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { clientId } = request.params
     try {
-      const brokers = await this.listAllBrokerUseCase.execute({
+      const brokers = await this.listValueBrokerUseCase.execute({
         clientId
       })
 

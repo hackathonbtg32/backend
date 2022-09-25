@@ -2,10 +2,10 @@ import { SqlBrokerRepository } from "../../../repositories/Broker/SqlBrokerRepos
 import { ListAllBrokerController } from "./listAllController";
 import { ListAllBrokerUseCase } from "./listAllUseCase";
 
-const sqlDebitsRepository = new SqlBrokerRepository()
+const sqlBrokersRepository = new SqlBrokerRepository()
 
 const listAllBrokerUseCase = new ListAllBrokerUseCase(
-  sqlDebitsRepository
+  sqlBrokersRepository
 )
 
 const listAllBrokerController = new ListAllBrokerController(
