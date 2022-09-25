@@ -13,7 +13,6 @@ export class DeleteDebitController {
     try {
       await this.deleteDebitUseCase.execute({
         debitId
-
       })
 
       return responseSuccess(response, {})
