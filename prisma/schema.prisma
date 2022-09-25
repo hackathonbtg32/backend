@@ -58,6 +58,7 @@ model Debits {
   name         String
   paymentData  Json
   paymentValue Float
+  isRemoved    Boolean  @default(false)
   status       Int      @default(1)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

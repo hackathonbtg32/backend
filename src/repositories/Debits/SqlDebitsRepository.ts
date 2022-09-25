@@ -7,6 +7,8 @@ export class SqlDebitsRepository implements DebitsRepository {
     const debits = await prisma.debits.findMany({
       where: {
         clientId: clientId,
+        isRemoved: false
+
       }
     })
     return debits
@@ -16,7 +18,9 @@ export class SqlDebitsRepository implements DebitsRepository {
     const debits = await prisma.debits.findMany({
       where: {
         clientId: clientId,
-        status: 1
+        status: 1,
+        isRemoved: false
+
       }
     })
     return debits
@@ -25,7 +29,8 @@ export class SqlDebitsRepository implements DebitsRepository {
   async delete(debitId: number): Promise<void> {
     await prisma.debits.update({
       data: {
-        status: 0
+        isRemoved: true
+
       },
       where: {
         id: debitId
@@ -37,7 +42,9 @@ export class SqlDebitsRepository implements DebitsRepository {
     const debit = await prisma.debits.findFirst({
       where: {
         clientId: clientId,
-        status: 0
+        status: 0,
+        isRemoved: false
+
       },
       orderBy: {
         paymentValue: 'asc',
@@ -57,7 +64,7 @@ export class SqlDebitsRepository implements DebitsRepository {
 
       },
       where: {
-        id: debitId
+        id: debitId,
       }
     })
   }
