@@ -10,7 +10,7 @@ debitsRouter.get('/debits/:clientId', (request, response) => {
   return listAllDebitsController.handle(request, response)
 })
 
-debitsRouter.get('/debits/nextDebitToPay/:clientId', (request, response) => {
+debitsRouter.get('/debits/nextdebittopay/:clientId', (request, response) => {
   return nextDebitsController.handle(request, response)
 })
 
