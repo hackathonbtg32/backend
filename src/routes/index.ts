@@ -7,7 +7,7 @@ import { debitsRouter } from "./debits"
 
 const routes = (app: Express) => {
   app.route('/').get((req: Request, res: Response) => {
-    return responseSuccess(res, { titulo: "Curso de node" })
+    return responseSuccess(res, { titulo: "#btgFazTech" })
   })
 
   app.use(debitsRouter)
