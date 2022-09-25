@@ -8,7 +8,7 @@ export class ListValueBrokerUseCase {
 
   async execute(data: listValueBrokerDTO) {
     const clientId = Number(data.clientId)
-    const brokers = await this.brokerRepository.findAll(clientId)
+    const brokers = await this.brokerRepository.findAccValue(clientId)
     return brokers
   }
 }
