@@ -50,4 +50,20 @@ export class SqlDebitsRepository implements DebitsRepository {
       }
     })
   }
+
+  async createDebit(clientId: number, debit: Debits): Promise<void> {
+    const randomPaymentValue = Math.floor(Math.random() * (10 - 1000) + 1000)
+    if (!debit.paymentData) {
+      debit.paymentData = {}
+    }
+    await prisma.debits.create({
+      data: {
+        clientId: clientId,
+        name: debit.name,
+        paymentData: debit.paymentData,
+        paymentValue: randomPaymentValue
+      }
+    }
+    )
+  }
 }

@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { createDebitsController } from "../useCases/Debits/createDebit";
 import { deleteDebitController } from "../useCases/Debits/deleteDebit";
 import { listAllDebitsController } from "../useCases/Debits/listAllDebits";
 import { nextDebitsController } from "../useCases/Debits/nextDebit";
@@ -20,6 +21,10 @@ debitsRouter.put('/debits/:debitId', (request, response) => {
 
 debitsRouter.patch('/debits/update/:debitId', (request, response) => {
   return updateDebitsController.handle(request, response)
+})
+
+debitsRouter.post('/debit/:clientId', (request, response) => {
+  return createDebitsController.handle(request, response)
 })
 
 export { debitsRouter };

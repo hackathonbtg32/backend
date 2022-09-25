@@ -5,5 +5,6 @@ export interface DebitsRepository {
   delete(debitId: number): Promise<void>
   nextDebitPay(clientId: number): Promise<Debits>
   updateDebit(debitId: number, debit: Object): Promise<void>
+  createDebit(clientId: number, debit: Object): Promise<void>
 
 }
