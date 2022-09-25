@@ -34,4 +34,20 @@ export class SqlDebitsRepository implements DebitsRepository {
     })
     return debit as Debits
   }
+
+  async updateDebit(debitId: number, debit: Debits): Promise<void> {
+    if (!debit.paymentData) {
+      debit.paymentData = {}
+    }
+    await prisma.debits.update({
+      data: {
+        status: debit.status,
+        paymentData: debit.paymentData
+
+      },
+      where: {
+        id: debitId
+      }
+    })
+  }
 }
