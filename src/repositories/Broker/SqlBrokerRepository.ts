@@ -27,7 +27,10 @@ export class SqlBrokerRepository implements BrokerRepository {
     const values = await prisma.broker.findMany({
       where: {
         clientId: clientId,
-        status: -1
+        OR: [
+          { status: -1 },
+          { status: 0 }
+        ]
       }
     })
     return values

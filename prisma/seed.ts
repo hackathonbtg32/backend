@@ -49,7 +49,7 @@ const Debits = {
     paymentCode: '34191.79001 01043.510047 91020.150008 2 91180026000',
     paymentTo: 'Banco Roxinho',
     paymentDate: '',
-    paymentValidateDate: '',
+    paymentDueDate: '2022-10-10 14:35:00',
     paymentPayedValue: 0.0,
     paymentStatus: 0,
   }),
