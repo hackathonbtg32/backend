@@ -4,7 +4,6 @@ services:
   api:
     hostname: api
     container_name: api
-    restart: always
     volumes:
       - .:/app
     ports:
